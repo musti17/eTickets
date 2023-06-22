@@ -17,7 +17,7 @@ namespace eTickets.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var allProducers = await _context.Producers.ToListAsync();
+            var allProducers = await _context.Producers.ToListAsync(); //asynchronous method to get list of Producers(see difference with ActorsController) 
             return View();
         }
     }
