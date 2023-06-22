@@ -1,7 +1,9 @@
 ﻿using eTickets.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace eTickets.Controllers
 {
@@ -16,7 +18,7 @@ namespace eTickets.Controllers
         public IActionResult Index()
         {
             var data = _context.Actors.ToList();//synchronous method to get list of actors
-            return View();
+            return View(data);
         }
     }
 }
