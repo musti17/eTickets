@@ -15,7 +15,7 @@ namespace eTickets.Controllers
         }
         public IActionResult Index()
         {
-            var data = _context.Actors.ToList();
+            var data = _context.Actors.ToList();//synchronous method to get list of actors
             return View();
         }
     }
