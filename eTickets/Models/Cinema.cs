@@ -11,10 +11,10 @@ namespace eTickets.Models
         [Display(Name = "Cinema Logo")]
         public string Logo { get; set; }
 
-        [Display(Name="Name")]
+        [Display(Name=" Cinema Name")]
         public string Name { get; set; }
 
-        [Display(Name="Description")]
+        [Display(Name="Cinema Description")]
         public string Description { get; set; }
 
         //Relationships
