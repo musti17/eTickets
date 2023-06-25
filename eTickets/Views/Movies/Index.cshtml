@@ -15,25 +15,32 @@
                         <div class="card-header text-white bg-info">
                             <p class="card-text">
                                 <h5 class="card-title">
-                                    Movie Name Sample
+                                   @item.Name
                                 </h5>
                             </p>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <img src="" width="100%" alt="">
+                        <img src="@item.ImageURL" width="100%" alt="@item.Name">
                     </div>
                     <div class="col-md-6">
                         <div class="card-body">
-                            <p class="card-text">Description Sample</p>
-                            <p class="card-text"><b>Cinema: </b>Name Sample</p>
-                            <p class="card-text"><b>Category: </b>Name Sample</p>
-                            <p class="card-text"><b>Start Date: </b>Name Sample</p>
-                            <p class="card-text"><b>End Date: </b>Name Sample</p>
+                            <p class="card-text">@item.Description</p>
+                            <p class="card-text"><b>Cinema: </b>@item.Cinema.Name</p>
+                            <p class="card-text"><b>Category: </b>@item.MovieCategory</p>
+                            <p class="card-text"><b>Start Date: </b>@item.StartDate</p>
+                            <p class="card-text"><b>End Date: </b>@item.EndDate</p>
                             <p class="card-text ">
                                 <b>Status: </b>
-                              Status Sample
-                             </p>
+                                @if(DateTime.Now >= item.StartDate && DateTime.Now <= item.EndDate)
+                                {
+                                    <span class="badge bg-success text-white">Available</span>
+                                }
+                                else
+                                {
+                                    <span class ="badge bg-primary text-white">Upcoming</span>
+                                }
+                            </p>
                         </div>
                     </div>
                     <div class="col-md-12">
