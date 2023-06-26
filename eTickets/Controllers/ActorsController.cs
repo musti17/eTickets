@@ -21,5 +21,11 @@ namespace eTickets.Controllers
             var data = _actorsService.GetActors();//synchronous method to get list of actors
             return View(data);
         }
+
+        //Get:  Actors/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
