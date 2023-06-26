@@ -10,7 +10,7 @@ namespace eTickets.Data.Services
 
         Actor GetActor(int id);
 
-        void Add(Actor actor);
+        void AddActor(Actor actor);
 
         Actor UpdateActor(int id,Actor newActor);
 
