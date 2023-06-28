@@ -13,7 +13,7 @@ namespace eTickets.Data.Services
 
         Task AddActor(Actor actor);
 
-        Actor UpdateActor(int id,Actor newActor);
+        Task<Actor> UpdateAsync(int id,Actor newActor);
 
         void DeleteActor(int id);
     }

@@ -49,5 +49,25 @@ namespace eTickets.Controllers
             if(actorDetails == null) return View("Empty");
             return View(actorDetails);
         }
+
+        public async Task<IActionResult> Edit(int id)
+        {
+            var actorDetails = await _actorsService.GetActor(id);
+
+            if (actorDetails == null) return View("Not Found");
+            return View(actorDetails);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(int id,[Bind("FullName,ProfilePictureURL,Bio")] Actor actor)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(actor);//will return the same view with the Model State Errors
+            }
+
+            await _actorsService.UpdateAsync(id, actor);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
