@@ -17,9 +17,9 @@ namespace eTickets.Controllers
         {
            _actorsService = actorsService;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            var data = _actorsService.GetActors();//synchronous method to get list of actors
+            var data = await _actorsService.GetActors();//synchronous method to get list of actors
             return View(data);
         }
 
@@ -30,25 +30,23 @@ namespace eTickets.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create([Bind("FullName,ProfilePictureURL,Bio")]Actor actor)
+        public async Task<IActionResult> Create([Bind("FullName,ProfilePictureURL,Bio")]Actor actor)
         {
             if(!ModelState.IsValid)
             {
                 return View(actor);//will return the same view with the Model State Errors
             }
-            _actorsService.AddActor(actor);
+            await _actorsService.AddActor(actor);
             return RedirectToAction(nameof(Index));
         }
 
         //Get: Actors/Details/1
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            var actorDetails = _actorsService.GetActor(id);
+            var actorDetails = await _actorsService.GetActor(id);
 
-            if(actorDetails == null)
-                return View("Empty");
-           
+            if(actorDetails == null) return View("Empty");
             return View(actorDetails);
         }
     }
