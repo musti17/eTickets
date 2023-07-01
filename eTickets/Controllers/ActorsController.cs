@@ -46,7 +46,7 @@ namespace eTickets.Controllers
         {
             var actorDetails = await _actorsService.GetActor(id);
 
-            if(actorDetails == null) return View("Empty");
+            if(actorDetails == null) return View("NotFound");
             return View(actorDetails);
         }
 
@@ -54,7 +54,7 @@ namespace eTickets.Controllers
         {
             var actorDetails = await _actorsService.GetActor(id);
 
-            if (actorDetails == null) return View("Not Found");
+            if (actorDetails == null) return View("NotFound");
             return View(actorDetails);
         }
 
@@ -75,7 +75,7 @@ namespace eTickets.Controllers
         {
             var actorDetails = await _actorsService.GetActor(id);
 
-            if (actorDetails == null) return View("Not Found");
+            if (actorDetails == null) return View("NotFound");
             return View(actorDetails);
         }
 
@@ -84,7 +84,7 @@ namespace eTickets.Controllers
         {
 
             var actorDetails = await _actorsService.GetActor(id);
-            if (actorDetails == null) return View("Not Found");
+            if (actorDetails == null) return View("NotFound");
 
             await _actorsService.DeleteAsync(id);
             return RedirectToAction(nameof(Index));
